@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Recipe Suggestions</h1>
+<p>Total Cost: ${{ total_cost }}</p>
+<h2>Suggested Recipes:</h2>
+<ul>
+    {% for recipe in recipes %}
+        <li>{{ recipe }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('calculator') }}">Calculate Again</a>
+{% endblock %}

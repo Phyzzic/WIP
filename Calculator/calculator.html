@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Cooking Cost Calculator</h1>
+<form method="POST">
+    <div id="ingredients">
+        <div>
+            <label>Ingredient:</label>
+            <input type="text" name="ingredient" required>
+            <label>Price:</label>
+            <input type="number" step="0.01" name="price" required>
+        </div>
+    </div>
+    <button type="button" onclick="addIngredient()">Add Another Ingredient</button><br>
+    <input type="submit" value="Calculate">
+</form>
+<script>
+function addIngredient() {
+    var ingredientsDiv = document.getElementById('ingredients');
+    var newIngredient = document.createElement('div');
+    newIngredient.innerHTML = `
+        <label>Ingredient:</label>
+        <input type="text" name="ingredient" required>
+        <label>Price:</label>
+        <input type="number" step="0.01" name="price" required>
+    `;
+    ingredientsDiv.appendChild(newIngredient);
+}
+</script>
+{% endblock %}
